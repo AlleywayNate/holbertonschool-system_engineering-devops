@@ -18,4 +18,4 @@ backend webserver
     server 2152-web-01 35.196.31.36:80 check
     server 2152-web-02 35.237.103.48:80 check
 " >> /etc/haproxy/haproxy.cfg
-service haproxy restart
+service haproxy restart 
