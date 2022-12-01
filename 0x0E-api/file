@@ -9,8 +9,9 @@ if __name__ == "__main__":
     user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
                         .format(id))
     todo = requests.get("https://jsonplaceholder.typicode.com/todos")
-    name = user.json().get("username")
     file = id + ".csv"
+    users = {}
+    list
 
     with open(file, 'w') as result:
         write = csv.writer(result,
