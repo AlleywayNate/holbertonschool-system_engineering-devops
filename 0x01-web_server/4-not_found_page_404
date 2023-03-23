@@ -8,5 +8,21 @@ echo "Hello World" > /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
 line="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
 sudo sed -i "27i $line" /etc/nginx/sites-available/default
+
+printf %s "server {
+    listen 80 defualt_server;
+    listen [ : : ]:80 dafault_server;
+    root /stc/nginx/html;
+    index intex.html;
+    location /redirect_me {
+    return 301 35.180.27.125
+    }
+        error_page 404 /404.html;
+        location /404 {
+        root /etc/nginx/html;
+        internal;
+        }
+}" > /etc/nginx/sites-availble/defualt
+
 sudo service nginx restart
 sudo service nginx reload

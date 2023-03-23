@@ -7,5 +7,14 @@ sudo chown -R "$USER":"$USER" /etc/nginx
 echo "Hello World" > /var/www/html/index.nginx-debian.html
 line="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=dQw4w9WgXcQ permanent;"
 sudo sed -i "26i $line" /etc/nginx/sites-available/default
+
+printf %s "server {
+root /etc/nginx/html;
+index index.html;
+location /redirect_me {
+return 301 35.180.27.125;}
+}" /etc/nginx/sites-avalable/defualt
+
 sudo service nginx restart
 sudo service nginx reload
+
